@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 
-
 # SET UP DATAFRAME
 file = pd.read_csv("2022-property-sales-data.csv")
 mainDF = pd.DataFrame(file)
@@ -9,30 +8,35 @@ mainDF = pd.DataFrame(file)
 # ------------------ #
 
 # FIND BASIC INFORMATION
-
+print(" ")
+print("---BASIC INFO---")
 #print(mainDF.shape)
-#print(mainDF.info())
+print(mainDF.info())
 
 # ------------------ #
 
 # FINDING % OF MISSING VALUES
+print(" ")
+print("---MISSING %---")
 missingDF = mainDF.isna() # turn main DF into T/F for Missing/Not Mising
 missingDF.dtypes # verify that it's all booleans
 missingNum = missingDF.sum() # sums each column in the missing DF
 missingNumPerc = (missingNum / len(mainDF)) * 100 # prints percentage of missing values in each column
-#print(missingNumPerc)
+print(missingNumPerc)
 
 # ------------------ #
 # FIND STATISTICS
-with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
-    print(mainDF.describe())
-
-
+print(" ")
+print("---STATISTICS---")
+with pd.option_context('display.max_rows', None, 'display.max_columns', None):  
+    statDF = mainDF.describe(include='all').T
+    print(statDF.to_string())
 
 
 # ------------------ #
 # MAIN DATAFRAME
 print(" ")
-print("MAIN DATAFRAME")
+print("---MAIN DATAFRAME---")
 print(mainDF)
+
 
