@@ -17,6 +17,7 @@ print(" ")
 print("--- BASIC INFO ---")
 print(mainDF.info())
 
+
 # ---- FIND UNIQUE VALUES ---- #
 print(" ")
 print("--- UNIQUE VALUES ---")
@@ -48,9 +49,9 @@ with pd.option_context('display.max_rows', None, 'display.max_columns', None):
 # ----- ADD MISSING INDICATOR VALUES ---- #
 print(" ")
 print("--- CONDOPROJECT INDICATORS ---")
-
 mainDF['CondoProject'] = mainDF['CondoProject'].fillna("No")
 print(mainDF['CondoProject'])
+
 
 # ---- MAIN DATAFRAME ---- #
 print(" ")
