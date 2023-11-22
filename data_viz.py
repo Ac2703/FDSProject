@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import data_processing as data_proc
-import seaborn as sns
+import scipy as sp
 
 
 file = pd.read_csv("CLEANED_2022_Property_Sales.csv")
