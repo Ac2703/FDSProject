@@ -39,6 +39,15 @@ saleMonth_unique = mainDF['Sale_Month'].unique()
 # ----- CLEANING DATA ---- #
 mainDF = mainDF.drop('CondoProject', axis='columns')
 
+# ---- UPDATE CSV ---- #
+while True:
+    try:
+        mainDF.to_csv('CLEANED_2022_Property_Sales.csv', mode ='w', sep=',')
+    except:
+        print("There was an error updating the CSV file.")
+    else:
+        print("Successfully updated CSV file!")
+        break
 
 def main():
     print(" ")
@@ -71,17 +80,7 @@ def main():
     print("--- MAIN DATAFRAME ---")
     print(mainDF)
 
-    # ---- UPDATE CSV ---- #
-    print(" ")
-    print("--- UPDATE CSV ---")
-    while True:
-        try:
-            mainDF.to_csv('CLEANED_2022_Property_Sales.csv', mode ='w', sep=',')
-        except:
-            print("There was an error updating the CSV file.")
-        else:
-            print("Successfully updated CSV file!")
-            break
+
 
    
 
